@@ -7,6 +7,7 @@
     <input type="text" name="name" placeholder="Nome" required>
     <input type="email" name="email" placeholder="Email" required>
      <input type="url" name="linkImg" placeholder="Link dell'immagine" required>
+     <input type="number" name="prezzo" placeholder="Prezzo" required>
      <input type="number" name="quantità" placeholder="Quantità" required>
     <button type="submit">Aggiungi</button>
     
@@ -14,7 +15,13 @@
   <ul>
     <% users.forEach(user => { %>
       <li>
-        <%= user.name %> - <%= user.email %> - <img src="<%= user.linkImg %>" width="100"> - Quantità: <%= user.quantità %>
+        <%= user.name %> - <%= user.email %> - <img src="<%= user.linkImg %>" width="100"> - Quantità: <%= user.quantità %> - Prezzo: <%= user.prezzo %>  -
+         <form action="/users/sell/<%= user.id %>" method="POST" style="display:inline;">
+          <button type="submit">Vendi</button>
+        </form>
+        <form action="/users/restock/<%= user.id %>" method="POST" style="display:inline;">
+          <button type="submit">Rifornisci</button>
+        </form>
         <form action="/users/delete/<%= user.id %>" method="POST" style="display:inline;">
           <button type="submit">Elimina</button>
         </form>

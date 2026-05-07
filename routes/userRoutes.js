@@ -7,4 +7,6 @@ router.get('/', userController.home);
 router.get('/users', userController.listUsers);
 router.post('/users', userController.createUser);
 router.post('/users/delete/:id', userController.deleteUser);
+router.post('/users/sell/:id', userController.sellUser);
+router.post('/users/restock/:id', userController.restockUser);
 module.exports = router;
