@@ -8,12 +8,26 @@ exports.listUsers = (req, res) => {
   res.render('users', { users });
 };
 exports.createUser = (req, res) => {
-  const { name, email, linkImg, quantità } = req.body;
-  User.create(name, email, linkImg, quantità);
+  const { name, email, linkImg, quantità, prezzo } = req.body;
+  User.create(name, email, linkImg, quantità, prezzo);
   res.redirect('/users');
 };
 exports.deleteUser = (req, res) => {
   const { id } = req.params;
   User.delete(id);
   res.redirect('/users');
-};
+}
+
+exports.sellUser = (req, res) => {
+  const { id } = req.params;
+  User.sell(id);
+  res.redirect('/users');
+}
+
+exports.restockUser = (req, res) => {
+  const { id } = req.params;
+  User.restock(id);
+  res.redirect('/users');
+}
+
+;

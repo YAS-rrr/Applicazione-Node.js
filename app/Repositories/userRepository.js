@@ -37,21 +37,25 @@ class UserRepository {
         this.users = newUsers;
     }
 
-    sell(id) {
+    sellUser(id) {
         const user = this.findById(id);
         if (user && user.quantità > 0) {
             user.quantità -= 1;
         }
     }
+    
 
-    restock(id) {
+    restockUser(id) {
         const user = this.findById(id);
         if (user) {
             user.quantità += 1;
-        }
+        }    
     }       
 
 
-}
+}       
+
+
+
 
 module.exports = new UserRepository();
