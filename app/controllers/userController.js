@@ -8,8 +8,8 @@ exports.listUsers = (req, res) => {
   res.render('users', { users });
 };
 exports.createUser = (req, res) => {
-  const { name, email } = req.body;
-  User.create(name, email);
+  const { name, email, linkImg, quantità } = req.body;
+  User.create(name, email, linkImg, quantità);
   res.redirect('/users');
 };
 exports.deleteUser = (req, res) => {

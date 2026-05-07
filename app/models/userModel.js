@@ -1,15 +1,15 @@
-// app/models/userModel.js
-let users = [];
-const User = {
-  findAll: () => users,
-  create: (name, email) => {
-    const newUser = { id: Date.now(), name, email };
-    users.push(newUser);
-    return newUser;
-  },
-  findById: (id) => users.find(u => u.id === parseInt(id)),
-  delete: (id) => {
-    users = users.filter(u => u.id !== parseInt(id));
+// app/models/user.js
+const { v4: uuidv4 } = require('uuid');
+
+class User {
+  constructor(name, email, linkImg, quantità) {
+    this.id = uuidv4();
+    this.name = name;
+    this.email = email;
+    this.linkImg = linkImg;
+    this.quantità = quantità;
+
   }
-};
+}
+
 module.exports = User;
