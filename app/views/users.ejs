@@ -6,12 +6,15 @@
   <form action="/users" method="POST">
     <input type="text" name="name" placeholder="Nome" required>
     <input type="email" name="email" placeholder="Email" required>
+     <input type="url" name="linkImg" placeholder="Link dell'immagine" required>
+     <input type="number" name="quantità" placeholder="Quantità" required>
     <button type="submit">Aggiungi</button>
+    
   </form>
   <ul>
     <% users.forEach(user => { %>
       <li>
-        <%= user.name %> - <%= user.email %>
+        <%= user.name %> - <%= user.email %> - <img src="<%= user.linkImg %>" width="100"> - Quantità: <%= user.quantità %>
         <form action="/users/delete/<%= user.id %>" method="POST" style="display:inline;">
           <button type="submit">Elimina</button>
         </form>
@@ -20,4 +23,4 @@
   </ul>
   <a href="/">Torna alla home</a>
 </body>
-</html&gt
+</html>
